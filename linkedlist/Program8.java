@@ -64,12 +64,9 @@ class LinkedList{
         reverseLinkedList(list1);
         reverseLinkedList(list2);
 
-        add.head = null;
-        add.tail = null;
-
         Node l1 = list1.head;
         Node l2 = list2.head;
-        int rem =0;
+        int rem = 0;
 
         while (l1 != null && l2 != null) {
             int num = l1.data + l2.data + rem;
@@ -77,8 +74,72 @@ class LinkedList{
             int n = num%10;
             Node temp = new Node(n);
 
+            if(add.head == null){
+                add.head = temp;
+                add.tail = temp;
+            }
+            else{
+                Node curr = add.head;
+                while (curr.next != null) {
+                    curr = curr.next;
+                }
+                curr.next = temp;
+                add.tail = temp;
+            }
+            l1 = l1.next;
+            l2 = l2.next;
         }
 
+        while(l1 != null){
+            int num = l1.data + rem;
+            rem = num/10;
+            int n = num%10;
+            Node temp = new Node(n);
+
+            if(add.head == null){
+                add.head = temp;
+                add.tail = temp;
+            }
+            else{
+                add.tail.next = temp;
+                add.tail = temp;
+            }
+            l1 = l1.next;
+        }
+
+        while (l2 != null) {
+            int num = l2.data + rem;
+            rem = num/10;
+            int n = num%10;
+            Node temp = new Node(n);
+
+            if(add.head == null){
+                add.head = temp;
+                add.tail = temp;
+            }
+            else{
+                add.tail.next = temp;
+                add.tail = temp;
+            }
+            l2 =l2.next;
+        }
+
+        while (rem != 0) {
+            Node temp = new Node(rem);
+
+            if(add.head == null){
+                add.head = temp;
+                add.tail = temp;
+            }
+            else{
+                add.tail.next = temp;
+                add.tail = temp;
+            }
+
+            rem = rem/10;
+        }
+
+        reverseLinkedList(add);
         return add;
     }
 
@@ -102,21 +163,25 @@ public class Program8 {
         LinkedList list1 = new LinkedList();
 
         list1.insertTail(list1, 9);
-        list1.insertTail(list1, 8);
-        list1.insertTail(list1, 7);
-        list1.insertTail(list1, 1);
+        list1.insertTail(list1, 9);
+        list1.insertTail(list1, 9);
+        list1.insertTail(list1, 9);
         
         LinkedList list2 = new LinkedList();
         
-        list2.insertTail(list2, 8);
-        list2.insertTail(list2, 7);
-        list2.insertTail(list2, 6);
-        list2.insertTail(list2, 5);
+        list2.insertTail(list2, 9);
+        list2.insertTail(list2, 9);
+        list2.insertTail(list2, 9);
+        list2.insertTail(list2, 9);
 
         list1.printList(list1);
         list1.printList(list2);
 
         LinkedList add = new LinkedList();
         add = list1.addTwoList(list1, list2);
+
+        System.out.println("added list: ");
+
+        list1.printList(add);
     }
 }

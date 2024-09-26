@@ -2,6 +2,8 @@
 
 import java.util.ArrayList;
 
+import set.Program10;
+
 public class Program10 {
 
     void firstNonRepeatElement(ArrayList<Integer> list){

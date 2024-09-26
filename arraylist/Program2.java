@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import set.Program2;
+
 public class Program2 {
     public static void main(String[] args) {
         Program2 p = new Program2();

@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
+import basicException.Program6;
+
 public class Program6 {
 
     void reverse(ArrayList<Integer> list , int s, int e){

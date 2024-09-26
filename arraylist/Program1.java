@@ -2,6 +2,8 @@
 
 import java.util.*;
 
+import set.Program1;
+
 public class Program1 {
     public static void main(String[] args) {
         Program1 p = new Program1();
